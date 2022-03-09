@@ -17,23 +17,27 @@
   margin-right: calc(100% - 95%);
 }
 
+.ten-thousand {
+  margin-left: 12px;
+}
+
 .thousand {
-  margin-left: 16px;
+  margin-left: 28px;
 }
 
 .hundred {
-  margin-left: 38px;
+  margin-left: 50px;
 }
 
 .ten {
-  margin-left: 54px;
+  margin-left: 66px;
 }
 
 .one {
-  margin-left: 70px;
+  margin-left: 82px;
 }
 .cash {
-  margin-left: 12px;
+  margin-left: 23px;
 }
 
 .first-list {
