@@ -1,0 +1,156 @@
+<%= form_with(model: @calc, local: true) do |f| %>
+  <div class="top-header">
+    <h1>現金チェック & 釣銭設定</h1>
+  </div>
+  <% if user_signed_in? %>
+
+  <div class="index">
+    <div class="main">
+      <div class="left">
+        <%= f.label :ten_thousand, "10,000円" %>
+        <%= f.text_field :ten_thousand, class:"calc-input", id:"ten-thousand", placeholder: "入力してください" %>
+      </div>
+      <div class="center">
+        <span class="total" id='ten-thousand-total' ></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="ten-thousand-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="thousand">
+          <%= f.label :five_thousand, "5,000円" %>
+          <%= f.text_field :five_thousand, class:"calc-input", id:"five-thousand", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='five-thousand-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="five-thousand-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="thousand">
+          <%= f.label :one_thousand, "1,000円" %>
+          <%= f.text_field :one_thousand, class:"calc-input", id:"one-thousand", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='one-thousand-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="one-thousand-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="hundred">
+          <%= f.label :five_hundred, "500円" %>
+          <%= f.text_field :five_hundred, class:"calc-input", id:"five-hundred", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='five-hundred-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="five-hundred-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="hundred">
+          <%= f.label :one_hundred, "100円" %>
+          <%= f.text_field :one_hundred, class:"calc-input", id:"one-hundred", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='one-hundred-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="one-hundredtake"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="ten">
+          <%= f.label :fifty, "50円" %>
+          <%= f.text_field :fifty, class:"calc-input", id:"fifty", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='fifty-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="fifty-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="ten">
+          <%= f.label :ten, "10円" %>
+          <%= f.text_field :ten, class:"calc-input", id:"ten", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='ten-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="ten-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="one">
+          <%= f.label :five, "5円" %>
+          <%= f.text_field :five, class:"calc-input", id:"five", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='five-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="five-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="one">
+          <%= f.label :one, "1円" %>
+          <%= f.text_field :one, class:"calc-input", id:"one", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='one-total'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="one-take"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="cash">
+          <%= f.label :cash, "現金合計" %>
+          <%= f.text_field :cash, class:"calc-input", id:"cash-total", placeholder: "入力してください" %>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='gap'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="take-total"></span>円
+      </div>
+    </div>
+    <div class="list-header">
+      <h6><%= link_to 'ユーザー情報の編集', edit_user_registration_path(current_user), class: "mypage" %></h6>
+      <h6><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></h6>
+    </div>
+  </div>
+  <% else %>
+    <div class="first-list">
+    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+    <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+  <% end %>
+<% end %>

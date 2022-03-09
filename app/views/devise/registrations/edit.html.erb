@@ -1,0 +1,44 @@
+<h1>マイページ</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", model: f.object %>
+
+  <div class="field">
+    <label class="form-text">店名</label><br/>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="field">
+    <label class="form-text">PCメールアドレス</label><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <label class="form-text">新しいパスワード※英数字混合6字以上</label><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <label class="form-text">新しいパスワード(確認)※英数字混合6字以上</label><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <label class="text-form">現在のパスワード</label><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="field">
+    <label class="text-form">釣銭設定額</label><br />
+    <%= f.text_field :amount, class:"amount-edit", id:"amount", autocomplete: "amount" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+
+<h2>ユーザーの削除</h2>
+
+<p>※一度削除したユーザーは復元できません。 <%= button_to "ログイン中のユーザーを削除する", registration_path(resource_name), data: { confirm: "この操作は取り消せません。本当に削除しますか？" }, method: :delete %></p>
+
+<%= link_to "戻る", :back %>

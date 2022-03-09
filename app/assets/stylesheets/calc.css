@@ -1,0 +1,61 @@
+
+.index {
+  font-size: 25px;
+}
+
+.main {
+  display: flex;
+}
+
+.left {
+  text-align: right;
+  margin-left: calc(100% - 95%);
+}
+
+.center {
+  margin-left: calc(100% - 95%);
+  margin-right: calc(100% - 95%);
+}
+
+.thousand {
+  margin-left: 16px;
+}
+
+.hundred {
+  margin-left: 38px;
+}
+
+.ten {
+  margin-left: 54px;
+}
+
+.one {
+  margin-left: 70px;
+}
+.cash {
+  margin-left: 12px;
+}
+
+.first-list {
+  display: flex;
+  list-style: none;
+  font-size: 25px;
+}
+
+.login {
+  margin: 0 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  color: #333333;
+}
+
+.list-header {
+  display: flex;
+  margin-left: 10px;
+}
+
+.mypage {
+  margin: 0 40px 0 20px;
+}
