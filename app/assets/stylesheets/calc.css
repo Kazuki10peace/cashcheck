@@ -5,6 +5,8 @@
 
 .main {
   display: flex;
+  justify-content: space-between;
+  margin-right: calc(100% - 80%);
 }
 
 .left {
@@ -13,8 +15,7 @@
 }
 
 .center {
-  margin-left: calc(100% - 95%);
-  margin-right: calc(100% - 95%);
+  margin-right: 100px;
 }
 
 .ten-thousand {
