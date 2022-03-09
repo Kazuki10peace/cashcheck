@@ -8,5 +8,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
   AMOUNT_REGEX = /\A[0-999999]\z/i.freeze
-  validates :amount, numericality: { presence: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 999_999, only_integer: true }
+  validates :amount,
+            numericality: { presence: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 999_999,
+                            only_integer: true }
 end
