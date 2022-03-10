@@ -3,6 +3,10 @@
   font-size: 25px;
 }
 
+.notice {
+  color: red;
+}
+
 .main {
   display: flex;
   justify-content: space-between;

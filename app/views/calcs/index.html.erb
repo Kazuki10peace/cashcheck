@@ -1,6 +1,10 @@
 <%= form_with(model: @calc, local: true) do |f| %>
   <div class="top-header">
     <h1>現金チェック & 釣銭設定</h1>
+    <div class="notice">
+      <h4>※半角数字で上から順に入力して下さい。</h4>
+      <h4>※0の場合も0を入力して下さい。</h4>
+    </div>
   </div>
   <%# if user_signed_in? %>
 
