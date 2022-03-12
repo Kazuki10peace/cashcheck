@@ -186,27 +186,158 @@ window.addEventListener('load', () => {
       const oneThousandCalc5Value = Math.floor(oneThousandCalc4Value * 10000)          //さらに10000を掛けて端数消えた状態で単位を戻す
 
 
-      //条件分岐①True 1~1000円合計が120000円以下 or 1~1000円合計が120001円以上の場合
-      if () { //1~1000円合計が120000円以下の場合
+      //条件分岐①True 1~1000円合計が120000円より少ない or 1~1000円合計が120000円以上の場合
+      if (oneThousandCalc5Value < amountValue ) { //1~1000円合計が120000円より少ない
+        //1000円釣銭額計算続き
+        const oneThousandConfirmValue = Math.floor(oneThousandCalc5Value - fiveHundredConfirmValue - oneHundredConfirmValue - fiftyConfirmValue - tenConfirmValue - fiveConfirmValue - oneConfirmValue)
+                                                                                       //1000円札だけの金額に直す
+        const oneThousandCalc6Value = Math.floor(oneThousandConfirmValue / 1000)       //1000円札の枚数を算出
 
-        //条件分岐②True 5000円札が３枚以下の場合 or 5000円札が4枚以上ある場合
-        if () { //5000円札が3枚以下の場合
-                  //10000円札を入れて釣銭作成する処理
-        //条件分岐②False 5000円札が３枚以下の場合 or 5000円札が4枚以上ある場合
-        }else { //5000円札が4枚以上ある場合
-                  //5000円札を入れて釣銭作成する処理
+
+        //条件分岐②True 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
+        if (fiveThousandValue <= 2 ) { //5000円札が2枚以下の場合
+          //1000円札釣銭額計算続き
+          oneThousandTakeDom.innerHTML = oneThousandCalc6Value                       //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirmValue                    //釣銭用に取る金額を出力
+          
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 0                                            //釣銭用に取る枚数を出力
+          fiveThousandTakeTotalDom.innerHTML = 0                                       //釣銭用に取る金額を出力
+
+          //10000円釣銭額計算
+          const tenThousandConfirmValue = Math.floor(amountValue - oneThousandCalc5Value)
+                                                                                       //10000円札入れる額計算
+          const tenThousandCalc1Value = Math.floor(tenThousandConfirmValue / 10000)    //10000円札の枚数を算出
+          tenThousandTakeDom.innerHTML = tenThousandCalc1Value                         //釣銭用に取る枚数を出力
+          tenThousandTakeTotalDom.innerHTML = tenThousandConfirmValue                  //釣銭用に取る金額を出力
+
+          //釣銭合計計算
+          const takeTotalValue = Math.floor(tenThousandConfirmValue + oneThousandConfirmValue + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotalValue                                      //釣銭合計を表示
+
+        //条件分岐②elsif 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
+        } else if (fiveThousandValue == 3 ) { //5000円札が3枚の場合
+          //1000円札釣銭額計算続き
+          const oneThousandCalc7Value = Math.floor(oneThousandCalc6Value + 5)          //1000円札を5枚足す
+          const oneThousandConfirm2Value = Math.floor(oneThousandCalc7Value * 1000)    //5枚足した時の金額
+          oneThousandTakeDom.innerHTML = oneThousandCalc7Value                         //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirm2Value                 //釣銭用に取る金額を出力
+
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 1                                            //釣銭用に取る枚数を出力
+          fiveThousandTakeTotalDom.innerHTML = 5000                                    //釣銭用に取る金額を出力
+
+          //10000円釣銭額計算
+          const tenThousandCalc2Value = Math.floor(5000 + oneThousandConfirm2Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //1~5000円の金額
+          const tenThousandConfirm2Value = Math.floor(amountValue - tenThousandCalc2Value)
+                                                                                       //10000円札の金額を算出
+          const tenThousandCalc3Value = Math.floor(tenThousandConfirm2Value / 10000)   //10000円札の枚数を算出
+          tenThousandTakeDom.innerHTML = tenThousandCalc3Value                         //釣銭用に取る枚数を出力
+          tenThousandTakeTotalDom.innerHTML = tenThousandConfirm2Value                 //釣銭用に取る金額を出力
+
+          //釣銭合計計算
+          const takeTotal2Value = Math.floor(tenThousandConfirm2Value + 5000 + oneThousandConfirm2Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotal2Value                                     //釣銭合計を表示
+
+        //条件分岐②False 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
+        } else { //5000円札が4枚以上ある場合
+          //1000円札釣銭額計算続き
+          oneThousandTakeDom.innerHTML = oneThousandCalc6Value                         //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirmValue                  //釣銭用に取る金額を出力
+
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 2                                            //釣銭用に取る枚数を出力
+          fiveThousandTakeTotalDom.innerHTML = 10000                                   //釣銭用に取る金額を出力
+
+          //10000円釣銭額計算
+
+          const tenThousandCalc2Value = Math.floor(10000 + oneThousandConfirmValue + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //1~5000円の金額
+          const tenThousandConfirm2Value = Math.floor(amountValue - tenThousandCalc2Value)
+                                                                                       //10000円札の金額を算出
+          const tenThousandCalc3Value = Math.floor(tenThousandConfirm2Value / 10000)   //10000円札の枚数を算出
+          tenThousandTakeDom.innerHTML = tenThousandCalc3Value                         //釣銭用に取る枚数を出力
+          tenThousandTakeTotalDom.innerHTML = tenThousandConfirm2Value                 //釣銭用に取る金額を出力
+
+          //釣銭合計計算
+          const takeTotal3Value = Math.floor(tenThousandConfirm2Value + 10000 + oneThousandConfirmValue + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotal3Value                                     //釣銭合計を表示
         }
 
-      //条件分岐①False  1~1000円合計が120000円以下 or 1~1000円合計が120001円以上の場合
+      //条件分岐①False  1~1000円合計が120000円より少ない or 1~1000円合計が120001円以上の場合
       } else {  //1~1000円合計が120001円以上の場合
+        //1000円釣銭額計算続き
+        const oneThousandCalc7Value = Math.floor(oneThousandCalc5Value - amountValue)  //釣銭設定額から溢れる金額計算
+        const oneThousandCalc8Value = Math.floor(oneThousandCalc5Value - fiveHundredConfirmValue - oneHundredConfirmValue - fiftyConfirmValue - tenConfirmValue - fiveConfirmValue - oneConfirmValue)
+                                                                                       //1000円札だけの金額算出(溢れ分込み)
+        const oneThousandConfirm3Value = Math.floor(oneThousandCalc8Value - oneThousandCalc7Value )
+                                                                                       //1000円札溢れ分を引いた金額
+        //条件分岐② True 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
+        if (fiveThousandValue <= 2 ) { //5000円札が2枚以下の場合
+          //1000円釣銭額計算続き
+          const oneThousandCalc9Value = Math.floor(oneThousandConfirm3Value / 1000)    //1000円札の枚数を算出
+          oneThousandTakeDom.innerHTML = oneThousandCalc9Value                         //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirm3Value                 //釣銭用に取る金額を出力
 
-        //条件分岐② True 5000円札が３枚以下の場合 or 5000円札が4枚以上ある場合
-        if () { //5000円札が3枚以下の場合
-                  //10000円札を入れて釣銭作成する処理
-        //条件分岐②False 5000円札が３枚以下の場合 or 5000円札が4枚以上ある場合
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 0                                            //釣銭用に取る枚数を出力
+          fiveThousandTakeTotalDom.innerHTML = 0                                       //釣銭用に取る金額を出力
+
+          //10000円釣銭額計算
+          tenThousandTakeDom.innerHTML = 0                                             //釣銭用に取る枚数を出力
+          tenThousandTakeTotalDom.innerHTML = 0                                        //釣銭用に取る金額を出力
+
+          //釣銭合計計算
+          const takeTotal4Value = Math.floor(oneThousandConfirm3Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotal4Value                                     //釣銭合計を表示
+
+          //条件分岐②elsif 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
+        } else if (fiveThousandValue == 3) { //5000円札が3枚の場合
+          //1000円札釣銭額計算続き
+          const oneThousandConfirm4Value = Math.floor(oneThousandConfirm3Value - 5000) //5000円札1枚分の余白を作って1000円枚数を確定
+          const oneThousandCalc10Value = Math.floor(oneThousandConfirm4Value / 1000)   //1000円札の枚数を出力
+          oneThousandTakeDom.innerHTML = oneThousandCalc10Value                        //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirm4Value                 //釣銭用に取る金額を出力
+
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 1                                            //釣銭用に取る金額を出力
+          fiveThousandTakeTotalDom.innerHTML = 5000                                    //釣銭用に取る枚数を出力
+
+          //10000円釣銭額計算
+          tenThousandTakeDom.innerHTML = 0                                             //釣銭用に取る枚数を出力
+          tenThousandTakeTotalDom.innerHTML = 0                                        //釣銭用に取る金額を出力
+
+          //釣銭合計計算
+          const takeTotal5Value = Math.floor(5000 + oneThousandConfirm4Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotal5Value                                     //釣銭合計を表示
+
+        //条件分岐②False 5000円札が2枚以下の場合 or 5000円札が3枚の場合 or 5000円札が4枚以上ある場合
         } else {//5000円札が4枚以上ある場合
                   //5000円札を入れて釣銭作成する処理
+          //1000円札釣銭額計算続き
+          const oneThousandConfirm5Value = Math.floor(oneThousandConfirm3Value - 10000)//5000円札2枚分の余白を作って1000円枚数を確定
+          const oneThousandCalc11Value = Math.floor(oneThousandConfirm5Value / 1000)   //1000円札の枚数を出力
+          oneThousandTakeDom.innerHTML = oneThousandCalc11Value                        //釣銭用に取る枚数を出力
+          oneThousandTakeTotalDom.innerHTML = oneThousandConfirm5Value                 //釣銭用に取る金額を出力
+
+          //5000円釣銭額計算
+          fiveThousandTakeDom.innerHTML = 2                                            //釣銭用に取る枚数を出力
+          fiveThousandTakeTotalDom.innerHTML = 10000                                   //釣銭用に取る枚数を出力
+
+          //10000円釣銭額計算
+          tenThousandTakeDom.innerHTML = 0                                             //釣銭用に取る金額を出力
+          tenThousandTakeTotalDom.innerHTML = 0                                        //釣銭用に取る枚数を出力
+
+          //釣銭合計計算
+          const takeTotal6Value = Math.floor(10000 + oneThousandConfirm5Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
+                                                                                       //釣銭合計を計算
+          takeTotalDom.innerHTML = takeTotal6Value                                     //釣銭合計を表示
         }
       }
-
 })})})})})})})})})})});
