@@ -1,6 +1,10 @@
 <%= form_with(model: @calc, local: true) do |f| %>
   <div class="top-header">
     <h1>現金チェック & 釣銭設定</h1>
+    <div class="notice">
+      <h4>※半角数字で上から順に入力して下さい。</h4>
+      <h4>※0の場合も0を入力して下さい。</h4>
+    </div>
   </div>
   <%# if user_signed_in? %>
 
@@ -22,7 +26,10 @@
         <span class="total" id='ten-thousand-total' ></span>円
       </div>
       <div class="right">
-        <span class="take" id="ten-thousand-take"></span>円
+        <span class="take" id="ten-thousand-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="ten-thousand-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -36,7 +43,10 @@
         <span class="total" id='five-thousand-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="five-thousand-take"></span>円
+        <span class="take" id="five-thousand-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="five-thousand-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -50,7 +60,10 @@
         <span class="total" id='one-thousand-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="one-thousand-take"></span>円
+        <span class="take" id="one-thousand-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="one-thousand-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -64,7 +77,10 @@
         <span class="total" id='five-hundred-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="five-hundred-take"></span>円
+        <span class="take" id="five-hundred-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="five-hundred-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -78,7 +94,10 @@
         <span class="total" id='one-hundred-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="one-hundredtake"></span>円
+        <span class="take" id="one-hundred-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="one-hundred-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -92,7 +111,10 @@
         <span class="total" id='fifty-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="fifty-take"></span>円
+        <span class="take" id="fifty-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="fifty-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -106,7 +128,10 @@
         <span class="total" id='ten-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="ten-take"></span>円
+        <span class="take" id="ten-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="ten-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -120,7 +145,10 @@
         <span class="total" id='five-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="five-take"></span>円
+        <span class="take" id="five-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="five-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -134,7 +162,10 @@
         <span class="total" id='one-total'></span>円
       </div>
       <div class="right">
-        <span class="take" id="one-take"></span>円
+        <span class="take" id="one-take"></span>枚
+      </div>
+      <div class="most-right">
+        <span class="take" id="one-take-total"></span>円
       </div>
     </div>
     <div class="main">
@@ -145,11 +176,20 @@
         </div>
       </div>
       <div class="center">
-        <span>レジギャップ</span>
-        <span class="total" id='gap'></span>円
+        <span>現金有高</span>
+        <span class="cash-calc" id='cash-calc'></span>円
       </div>
       <div class="right">
+        <span>釣銭合計額</span>
         <span class="take" id="take-total"></span>円
+      </div>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div class="cash">
+          <span>レジギャップ</span>
+          <span class="total" id='gap'></span>円
+        </div>
       </div>
     </div>
     <%#div class="list-header">
