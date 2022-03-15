@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
   const cashCalcDom = document.getElementById("cash-calc");                           //現金有高出力欄
   const takeTotalDom = document.getElementById("take-total");                         //釣銭合計出力欄
   const amountInput = document.getElementById("amount");                              //釣銭設定額入力数取得
-  const cashSalesDom = document.getElementById("cash-sales")                        //売上現金出力欄
+  const cashSalesDom = document.getElementById("cash-sales")                          //売上現金出力欄
   const gapDom = document.getElementById("gap");                                      //レジギャップ出力欄
 
   //10000円入力し、金額表示
@@ -341,4 +341,5 @@ window.addEventListener('load', () => {
           takeTotalDom.innerHTML = takeTotal6Value                                     //釣銭合計を表示
         }
       }
+
 })})})})})})})})})})});
