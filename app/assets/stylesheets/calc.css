@@ -22,6 +22,7 @@
   margin-right: 100px;
 }
 
+
 .ten-thousand {
   margin-left: 12px;
 }
@@ -67,4 +68,12 @@
 
 .mypage {
   margin: 0 40px 0 20px;
+}
+
+.bottom-left {
+  margin-left: 171px;
+}
+
+.bottom-left-a {
+  margin-left: 194px;
 }

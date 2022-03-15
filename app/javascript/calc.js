@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
   
   //各出力箇所取得
-  const amountInput = document.getElementById("amount");                              //釣銭設定額入力数取得
 
   const tenThousandInput = document.getElementById("ten-thousand");                   //10000円入力数取得
   const tenThousandTotalDom = document.getElementById("ten-thousand-total");          //10000円入力額出力欄
@@ -49,8 +48,10 @@ window.addEventListener('load', () => {
   const oneTakeTotalDom = document.getElementById("one-take-total");
 
   const cashTotalInput = document.getElementById("cash-total");                       //現金売上取得
-  const cashCalcDom = document.getElementById("cash-calc");                        //現金有高出力欄
+  const cashCalcDom = document.getElementById("cash-calc");                           //現金有高出力欄
   const takeTotalDom = document.getElementById("take-total");                         //釣銭合計出力欄
+  const amountInput = document.getElementById("amount");                              //釣銭設定額入力数取得
+  const cashSalesDom = document.getElementById("cash-sales")                        //売上現金出力欄
   const gapDom = document.getElementById("gap");                                      //レジギャップ出力欄
 
   //10000円入力し、金額表示
@@ -105,6 +106,8 @@ window.addEventListener('load', () => {
       const cashValue = cashTotalInput.value;                                          //入力した数値を取得
       const totalValue = Math.floor(tenThousandTotalValue+fiveThousandTotalValue+oneThousandTotalValue+fiveHundredTotalValue+oneHundredTotalValue+fiftyTotalValue+tenTotalValue+fiveTotalValue+oneTotalValue)
       cashCalcDom.innerHTML = totalValue                                               //現金有高計算し出力
+      const amountValue = amountInput.value;                                           //入力した釣銭設定額を取得
+      cashSalesDom.innerHTML = Math.floor(totalValue - amountValue)                    //売上現金計算し出力
       gapDom.innerHTML = Math.floor(cashValue-totalValue)                              //レジギャップ欄へ出力
 
       // 1円釣銭額計算
@@ -174,8 +177,6 @@ window.addEventListener('load', () => {
       const fiveHundredCalc6Value = Math.floor(fiveHundredConfirmValue / 500)          //500円玉の枚数を算出
       fiveHundredTakeDom.innerHTML = fiveHundredCalc6Value                             //釣銭用に取る金額を出力
       fiveHundredTakeTotalDom.innerHTML = fiveHundredConfirmValue                      //釣銭用に取る枚数を出力
-
-      const amountValue = amountInput.value;                                           //入力した釣銭設定額を取得
 
       //1000円釣銭額計算
       const oneThousandCalc1Value = Math.floor(oneThousandValue - 30)                  //ドロアに残す額を引く

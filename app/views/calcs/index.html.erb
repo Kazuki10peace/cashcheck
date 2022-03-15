@@ -11,12 +11,6 @@
   <div class="index">
     <div class="main">
       <div class="left">
-        <%= f.label :amount, "釣銭設定額" %>
-        <%= f.text_field :amount, class:"calc-input", id:"amount", placeholder: "入力してください" %>
-      </div>
-    </div>
-    <div class="main">
-      <div class="left">
         <div class="ten-thousand">
           <%= f.label :ten_thousand, "10,000円" %>
           <%= f.text_field :ten_thousand, class:"calc-input", id:"ten-thousand", placeholder: "入力してください" %>
@@ -168,15 +162,12 @@
         <span class="take" id="one-take-total"></span>円
       </div>
     </div>
+    
     <div class="main">
-      <div class="left">
-        <div class="cash">
-          <%= f.label :cash, "現金合計" %>
-          <%= f.text_field :cash, class:"calc-input", id:"cash-total", placeholder: "入力してください" %>
-        </div>
+      <div class="bottom-left-a">
+        <span>現金有高</span>
       </div>
       <div class="center">
-        <span>現金有高</span>
         <span class="cash-calc" id='cash-calc'></span>円
       </div>
       <div class="right">
@@ -185,11 +176,67 @@
       </div>
     </div>
     <div class="main">
-      <div class="left">
+      <div class="bottom-left">
+        <div class="cash">
+          <%= f.label :amount, "釣銭設定額" %>
+        </div>
+      </div>
+      <div class="center">
+        <%= f.text_field :amount, class:"calc-input", id:"amount", placeholder: "入力してください" %>
+      </div>
+      <div class="right">
+        <span class="take" id="nil"></span>
+      </div>
+      <div class="most-right">
+        <span class="take" id="nil"></span>
+      </div>
+    </div>
+    <div class="main">
+      <div class="bottom-left">
+        <div class="cash">
+          <span>売上現金</span>
+        </div>
+      </div>
+      <div class="center">
+        <span class="total" id='cash-sales'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="nil"></span>
+      </div>
+      <div class="most-right">
+        <span class="take" id="nil"></span>
+      </div>
+    </div>
+    <div class="main">
+      <div class="bottom-left">
+        <div class="cash">
+          <%= f.label :cash, "売上合計" %>
+        </div>
+      </div>
+      <div class="center">
+        <%= f.text_field :cash, class:"calc-input", id:"cash-total", placeholder: "入力してください" %>
+      </div>
+      <div class="right">
+        <span class="take" id="nil"></span>
+      </div>
+      <div class="most-right">
+        <span class="take" id="nil"></span>
+      </div>
+    </div>
+    <div class="main">
+      <div class="bottom-left">
         <div class="cash">
           <span>レジギャップ</span>
-          <span class="total" id='gap'></span>円
         </div>
+      </div>
+      <div class="center">
+        <span class="total" id='gap'></span>円
+      </div>
+      <div class="right">
+        <span class="take" id="nil"></span>
+      </div>
+      <div class="most-right">
+        <span class="take" id="nil"></span>
       </div>
     </div>
     <%#div class="list-header">
