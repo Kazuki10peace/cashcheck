@@ -107,8 +107,9 @@ window.addEventListener('load', () => {
       const totalValue = Math.floor(tenThousandTotalValue+fiveThousandTotalValue+oneThousandTotalValue+fiveHundredTotalValue+oneHundredTotalValue+fiftyTotalValue+tenTotalValue+fiveTotalValue+oneTotalValue)
       cashCalcDom.innerHTML = totalValue                                               //現金有高計算し出力
       const amountValue = amountInput.value;                                           //入力した釣銭設定額を取得
-      cashSalesDom.innerHTML = Math.floor(totalValue - amountValue)                    //売上現金計算し出力
-      gapDom.innerHTML = Math.floor(cashValue-totalValue)                              //レジギャップ欄へ出力
+      const cashSalesValue = Math.floor(totalValue - amountValue)
+      cashSalesDom.innerHTML = cashSalesValue                                          //売上現金計算し出力
+      gapDom.innerHTML = Math.floor( cashSalesValue - cashValue )                      //レジギャップ欄へ出力
 
       // 1円釣銭額計算
       const oneCalc1Value = Math.floor(oneValue / 10 )                                 //端数捨てる為に一度10で割る
@@ -179,7 +180,7 @@ window.addEventListener('load', () => {
       fiveHundredTakeTotalDom.innerHTML = fiveHundredConfirmValue                      //釣銭用に取る枚数を出力
 
       //1000円釣銭額計算
-      const oneThousandCalc1Value = Math.floor(oneThousandValue - 30)                  //ドロアに残す額を引く
+      const oneThousandCalc1Value = Math.floor(oneThousandValue - 20)                  //ドロアに残す額を引く
       const oneThousandCalc2Value = Math.floor(oneThousandCalc1Value * 1000)           //枚数を金額に直す
       const oneThousandCalc3Value = Math.floor(oneThousandCalc2Value + fiveHundredConfirmValue + oneHundredConfirmValue + fiftyConfirmValue + tenConfirmValue + fiveConfirmValue + oneConfirmValue)
                                                                                        //他の釣銭額と足す
