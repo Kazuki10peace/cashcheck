@@ -342,5 +342,4 @@ window.addEventListener('load', () => {
           takeTotalDom.innerHTML = takeTotal6Value                                     //釣銭合計を表示
         }
       }
-
 })})})})})})})})})})});
