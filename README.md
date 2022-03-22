@@ -1,24 +1,28 @@
-# README
+# CashCheck
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* レジ内現金の再確認や釣銭設定の効率化
 
-Things you may want to cover:
+* https://cashcalc1.herokuapp.com/
 
-* Ruby version
+* テストアカウント ID:lotteria Pass:131003
 
-* System dependencies
+## 利用方法
 
-* Configuration
+1. レジ及び釣銭ボックスの合計枚数を上から順に入力(0の場合も入力)
+2. 釣銭設定額を入力
+3. 現金売上額を売上合計欄に入力すると計算結果が表示される
 
-* Database creation
+## 目指した課題解決
+* 人件費の削減、業務の効率化、人的ミス撲滅
 
-* Database initialization
+## 洗い出した要件
+* 現金チェック機能
+* 釣銭設定機能
 
-* How to run the test suite
+## 機能説明
+* 現金チェック機能と釣銭設定機能が一括化されています
+* 各フォームを上から入力し売上合計を入力すると計算結果が出ます
+[![Image from Gyazo](https://i.gyazo.com/c650aab9b4b9492c1651e46a405d19b5.gif)](https://gyazo.com/c650aab9b4b9492c1651e46a405d19b5)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 開発環境
+* Ruby on Rails
